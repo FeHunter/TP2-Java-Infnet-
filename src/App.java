@@ -2,13 +2,17 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Digite um numero");
         Scanner sc = new Scanner(System.in);
 
-        double n;
-        n = sc.nextDouble();
+        System.out.println("Quantos alunos deseja cadastrar?");
+        int qtdAluno = sc.nextInt();
 
-        System.out.println("Numero: " + n);
+        int[] alunos = new int[qtdAluno];
+
+        for (int i=0; i < qtdAluno; i++){
+            
+        }
+
     }
 
     static void addAluno () {
