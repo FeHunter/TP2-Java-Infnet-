@@ -1,27 +1,34 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.print("Quantos alunos deseja cadastrar?");
-        int qtdAluno = sc.nextInt();
+        // Scanner sc = new Scanner(System.in);
+        ArrayList<Aluno> alunos = new ArrayList<>();
 
-        Aluno[] alunos = new Aluno[qtdAluno];
+        String FLAG;
 
-        for (int i=0; i < qtdAluno; i++){
-            alunos[i] = addAluno();
-        }
+        do {
+            Aluno aluno = addAluno();
+            alunos.add(aluno);
+            FLAG = finalizarPrograma();
+        } while (!FLAG.equals("fim"));
 
         // foreach, igual c#
         for (Aluno aluno : alunos) {
-            System.out.println("Aluno: " + aluno.nome);
+            System.out.println("\nAluno: " + aluno.nome);
+            System.out.println("Nota 1: " + aluno.nota1);
+            System.out.println("Nota 2: " + aluno.nota2);
+            System.out.println("Média: " + aluno.media(aluno.nota1, aluno.nota2));
+            System.out.println(aluno.situacao(aluno.nota1, aluno.nota2));
         }
 
     }
 
-    static void inicio (){
-        
+    static String finalizarPrograma (){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("[c] Continuar, [fim] Sair");
+        return sc.next();
     }
 
     static Aluno addAluno () {
