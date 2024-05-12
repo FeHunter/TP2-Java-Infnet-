@@ -3,32 +3,42 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
-
-        System.out.println("Quantos alunos deseja cadastrar?");
+        
+        System.out.print("Quantos alunos deseja cadastrar?");
         int qtdAluno = sc.nextInt();
 
-        int[] alunos = new int[qtdAluno];
+        Aluno[] alunos = new Aluno[qtdAluno];
 
         for (int i=0; i < qtdAluno; i++){
-            
+            alunos[i] = addAluno();
+        }
+
+        // foreach, igual c#
+        for (Aluno aluno : alunos) {
+            System.out.println("Aluno: " + aluno.nome);
         }
 
     }
 
-    static void addAluno () {
+    static void inicio (){
+        
+    }
+
+    static Aluno addAluno () {
 
         Scanner sc = new Scanner(System.in);
 
-        String nome;
-        double nota1, nota2;
+        Aluno aluno = new Aluno();
 
         System.out.println("Adicionar Aluno");
         System.out.print("Nome: ");
-        nome = sc.next();
+        aluno.nome = sc.next();
         System.out.print("Nota 1: ");
-        nota1 = sc.nextDouble();
+        aluno.nota1 = sc.nextDouble();
         System.out.print("Nota 2: ");
-        nota2 = sc.nextDouble();
+        aluno.nota2 = sc.nextDouble();
+
+        return aluno;
 
     }
 }
