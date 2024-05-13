@@ -1,37 +1,24 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 
 public class App {
-    public static void main(String[] args) throws Exception {
-        // Scanner sc = new Scanner(System.in);
-        ArrayList<Aluno> alunos = new ArrayList<>();
+    public static void main(String[] args) {
 
         String FLAG;
 
         do {
-            Aluno aluno = addAluno();
-            alunos.add(aluno);
+            addAluno();
             FLAG = finalizarPrograma();
         } while (!FLAG.equals("fim"));
-
-        // foreach, igual c#
-        for (Aluno aluno : alunos) {
-            System.out.println("\nAluno: " + aluno.nome);
-            System.out.println("Nota 1: " + aluno.nota1);
-            System.out.println("Nota 2: " + aluno.nota2);
-            System.out.println("Média: " + aluno.media(aluno.nota1, aluno.nota2));
-            System.out.println(aluno.situacao(aluno.nota1, aluno.nota2));
-        }
 
     }
 
     static String finalizarPrograma (){
         Scanner sc = new Scanner(System.in);
-        System.out.println("[c] Continuar, [fim] Sair");
+        System.out.println("\n[c] Continuar, [fim] Sair");
         return sc.next();
     }
 
-    static Aluno addAluno () {
+    static void addAluno () {
 
         Scanner sc = new Scanner(System.in);
 
@@ -45,7 +32,11 @@ public class App {
         System.out.print("Nota 2: ");
         aluno.nota2 = sc.nextDouble();
 
-        return aluno;
+        System.out.println("\nAluno: " + aluno.nome);
+        System.out.println("Nota 1: " + aluno.nota1);
+        System.out.println("Nota 2: " + aluno.nota2);
+        System.out.println("Média: " + aluno.media(aluno.nota1, aluno.nota2));
+        System.out.println(aluno.situacao(aluno.nota1, aluno.nota2));
 
     }
 }
